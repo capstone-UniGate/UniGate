@@ -7,6 +7,7 @@
           <FormLabel>Name</FormLabel>
           <FormControl>
             <Input
+              id="group-name"
               type="text"
               placeholder="Group Name"
               v-bind="componentField"
@@ -21,7 +22,11 @@
         <FormItem>
           <FormLabel>Course</FormLabel>
           <FormControl>
-            <select v-bind="componentField" class="form-select">
+            <select
+              id="group-course"
+              v-bind="componentField"
+              class="form-select"
+            >
               <option value="">Select from student's courses</option>
               <option value="course1">Course 1</option>
               <option value="course2">Course 2</option>
@@ -38,11 +43,21 @@
           <FormItem>
             <div class="flex items-center space-x-4">
               <label class="inline-flex items-center">
-                <input type="radio" value="public" v-bind="componentField" />
+                <input
+                  id="public-radio"
+                  type="radio"
+                  value="public"
+                  v-bind="componentField"
+                />
                 <span class="ml-2">Public</span>
               </label>
               <label class="inline-flex items-center">
-                <input type="radio" value="private" v-bind="componentField" />
+                <input
+                  id="private-radio"
+                  type="radio"
+                  value="private"
+                  v-bind="componentField"
+                />
                 <span class="ml-2">Private</span>
               </label>
             </div>
@@ -58,6 +73,7 @@
           <FormLabel>Description</FormLabel>
           <FormControl>
             <textarea
+              id="group-description"
               v-bind="componentField"
               placeholder="Describe your group"
               class="form-textarea"
@@ -143,8 +159,19 @@
 
       <!-- Buttons -->
       <div class="flex justify-start space-x-4 margin-bottom-custom">
-        <Button type="submit" :disabled="formHasErrors"> Create </Button>
-        <Button type="button" @click="onCancel" variant="destructive">
+        <Button
+          id="create-group-submit"
+          type="submit"
+          :disabled="formHasErrors"
+        >
+          Create
+        </Button>
+        <Button
+          id="create-group-cancel"
+          type="button"
+          @click="onCancel"
+          variant="destructive"
+        >
           Cancel
         </Button>
       </div>

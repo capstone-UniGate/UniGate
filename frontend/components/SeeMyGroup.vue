@@ -35,7 +35,10 @@ onMounted(() => {
         Your Enrolled Groups
       </h1>
       <!-- Add the button here -->
-      <Button @click="() => $router.push('/group/create')" class="ml-auto"
+      <Button
+        id="create-group-btn"
+        @click="() => $router.push('/group/create')"
+        class="ml-auto"
         >Create a new group</Button
       >
     </div>

@@ -22,5 +22,6 @@
   "gitlens.telemetry.enabled": false,
   "mdb.sendTelemetry": false,
   "editor.smoothScrolling": true,
-  "window.titleBarStyle": "custom"
+  "window.titleBarStyle": "custom",
+  "liveServer.settings.port": 5501
 }
