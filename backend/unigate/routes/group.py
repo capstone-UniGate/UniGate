@@ -120,6 +120,11 @@ def accept_group_request(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="You are not a super student of this group",
         )
+    if request.student_id in group.blocked_students:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="You can't accept a blocked student",
+        )
     return crud.group.approve_request(session=session, request=request)
 
 
