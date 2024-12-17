@@ -143,6 +143,7 @@ export function useGroups() {
       const response = await useApiFetch(`/groups/${groupId}/requests`, {
         method: "GET",
       });
+
       return response;
     } catch (error) {
       isError.value = true;

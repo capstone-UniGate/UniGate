@@ -84,17 +84,21 @@ const isError = ref(false);
 
 const { getGroupRequests, handleGroupRequest, currentStudent } = useGroups();
 
-// Fetch requests
 async function fetchRequests() {
   try {
     isLoading.value = true;
     isError.value = false;
     const response = await getGroupRequests(groupId);
-    requests.value = response as Request[];
-  } catch (error) {
+
+    // Filter only the PENDING requests
+    const allRequestsArray = response as Request[];
+    requests.value = allRequestsArray.filter(req => req.status === 'PENDING');
+
+  } catch (error: any) {
     console.error("Error fetching requests:", error);
     isError.value = true;
-    // Redirect to login if unauthorized
+
+    // Redirect to login if unauthorized or forbidden
     if (error.response?.status === 401 || error.response?.status === 403) {
       router.push("/login");
     }
